@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Rock Paper scissors</title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+<script>
+
+//__playerInput__ is given by a case insensitive prompt(), choose between rock, paper or scissor__s__;
+let __playerInput__ = prompt("1,2,3, rock, paper or scissors??");
+//__playerSelection__ is __playerInput__.toLowerCase;
+let __playerSelection__= __playerInput__.toLowerCase();
+//__computerSelection__ is given by 
+let __computerSelection__
+
+function __computerPlay__(){
+let plays = ["rock", "paper", "scissors"];
+__computerSelection__ = plays[Math.floor(Math.random() * plays.length)];
+return __computerSelection__
+}
+
+        
+function  __playRound__ (__computerSelection__ , __playerSelection__){ 
+        
+        if (__playerSelection__ === __computerSelection__){return "It\'s a tie!"}
+        
+            else if (__playerSelection__=== "rock" && __computerSelection__=== "scissors"){
+             return "You win! "+ __playerSelection__+ " beats " + __computerSelection__ }
+
+               else if ( __playerSelection__=== "paper" && __computerSelection__=== "rock"){
+               return "You win! "+ __playerSelection__ + " beats " + __computerSelection__ }
+               
+                else if( __playerSelection__=== "scissors" && __computerSelection__==="paper"){
+                   return "You win! "+ __playerSelection__ + " beats " + __computerSelection__ }
+       
+        else { return "You Lose! "+ __computerSelection__ + " beats " + __playerSelection__}
+
+        }
+    console.log(__playRound__(__computerSelection__,__playerSelection__))
+
+function game(){
+    let playerScore = 0;
+    let computerScore=0;
+    for (let i=0; i<=5; i++){
+         __playerInput__ = prompt("1,2,3, rock, paper or scissors??");
+         __playerSelection__= __playerInput__.toLowerCase();
+        __computerPlay__()
+        __playRound__(__computerSelection__,__playerSelection__)
+        if (__playRound__(__computerSelection__,__playerSelection__).startsWith("You win")){playerScore++}
+         else if(__playRound__(__computerSelection__,__playerSelection__).startsWith("You Lose")){computerScore++}
+         }
+         return ("Player " + playerScore + "   Computer " + computerScore )  ;
+}
+
+
+
+</script>
+</body>
+</html>
